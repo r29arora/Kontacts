@@ -34,7 +34,7 @@ extension LocationManager {
     }
 
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        print("\(newLocation)")
+        NSLog("%@", newLocation)
     }
 }
 

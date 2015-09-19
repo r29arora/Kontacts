@@ -89,5 +89,13 @@ extension ContactManager {
         if let contactInfo = NSUserDefaults.standardUserDefaults().objectForKey(Constants.contactInfoDictionaryKey) as? NSDictionary {
             self.userBaseRef.childByAppendingPath(self.userID).setValue(contactInfo)
         }
+
+        if let
+            image = self.image,
+            imageData = UIImageJPEGRepresentation(image, 0.1)
+        {
+            let imageString = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+            self.userBaseRef.childByAppendingPath(self.userID).updateChildValues(["image": imageString])
+        }
     }
 }

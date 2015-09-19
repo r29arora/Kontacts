@@ -97,6 +97,8 @@ extension ContactCardViewController {
             action: "didSelectDone:"
         )
 
+        self.navigationItem.title = "My Contact Info"
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
 
@@ -218,6 +220,7 @@ extension ContactCardViewController {
             phoneNumber = self.phoneNumberTextField.text
         {
             ContactManager.manager.save(firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber)
+            ContactManager.manager.saveUserData()
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }

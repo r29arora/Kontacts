@@ -63,7 +63,6 @@ extension LocationManager {
         if (self.myLoc.distanceFromLocation(newLocation) < 2.0) { return }
         
         if let userID = self.userID {
-            NSLog("updated location")
             self.myLoc = newLocation;
             self.geoFire.setLocation(newLocation, forKey: userID)
             self.geoQuery(self.myLoc)

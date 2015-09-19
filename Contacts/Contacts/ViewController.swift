@@ -38,6 +38,7 @@ extension ViewController {
     override func loadView() {
         super.loadView()
         self.view.addSubview(self.tableView)
+        self.navigationItem.title = "Kontact"
     }
 
     override func viewDidLoad() {

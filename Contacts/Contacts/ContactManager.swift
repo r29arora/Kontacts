@@ -83,5 +83,7 @@ extension ContactManager {
         self.image = image
     }
     
-    
+    func removeUserData() {
+        self.userBaseRef.childByAppendingPath(self.userID).removeValue()
+    }
 }

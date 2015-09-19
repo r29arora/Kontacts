@@ -37,9 +37,6 @@ class ContactManager: NSObject {
             self.lastName = contactInfo["lastName"] as? String ?? ""
             self.email = contactInfo["email"] as? String ?? ""
             self.phoneNumber = contactInfo["phoneNumber"] as? String ?? ""
-
-            self.userID = userDefaults.stringForKey(kUserIDKey)
-            self.userBaseRef.childByAppendingPath(self.userID).setValue(contactInfo)
         }
 
         if let encodedImage = NSUserDefaults.standardUserDefaults().objectForKey(Constants.contactImageKey) as? NSData {
@@ -85,5 +82,12 @@ extension ContactManager {
     
     func removeUserData() {
         self.userBaseRef.childByAppendingPath(self.userID).removeValue()
+    }
+
+    func saveUserData() {
+        self.userID = NSUserDefaults.standardUserDefaults().stringForKey(kUserIDKey)
+        if let contactInfo = NSUserDefaults.standardUserDefaults().objectForKey(Constants.contactInfoDictionaryKey) as? NSDictionary {
+            self.userBaseRef.childByAppendingPath(self.userID).setValue(contactInfo)
+        }
     }
 }

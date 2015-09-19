@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController,
     UITableViewDelegate,
-    UITableViewDataSource
+    UITableViewDataSource,
+    LocationManagerDelegate
 {
     struct Constants {
         static let rowHeight: CGFloat = 44.0
@@ -25,18 +26,10 @@ class ViewController: UIViewController,
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
         return tableView
     }()
-}
-
-// MARK: - Geo
-
-func geoQuery()
-{
-    let center = LocationManager.manager.myLoc
-    let circleQuery = LocationManager.manager.geoFire.queryAtLocation(center, withRadius: 0.4)
     
-    circleQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
-        NSLog("%@, %@", key, location)
-    })
+    var userArray = []
+    var userID: String?
+    
 }
 
 // MARK: - UIViewController
@@ -59,7 +52,12 @@ extension ViewController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        self.userID = userDefaults.stringForKey(kUserIDKey)
+        
         LocationManager.manager.requestAccess()
+        LocationManager.manager.delegate = self;
     }
 
     override func viewWillLayoutSubviews() {
@@ -87,4 +85,24 @@ extension ViewController {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
+}
+
+// MARK: - LocationManagerDelegate
+extension ViewController {
+    func locationManagerUserEnteredRadius(key: String) {
+        if (self.userID == key) { return; }
+        NSLog("user entered: %@", key)
+        
+    }
+    
+    func locationManagerUserExitedRadius(key: String) {
+        if (self.userID == key) { return; }
+        NSLog("user exited: %@", key)
+    }
+}
+
+// MARK: - Private Methods
+
+extension ViewController {
+
 }

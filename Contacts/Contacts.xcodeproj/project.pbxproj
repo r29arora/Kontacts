@@ -13,7 +13,7 @@
 		AA2163141BAD9D63000AA4B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2163121BAD9D63000AA4B4 /* LaunchScreen.storyboard */; };
 		AA21631C1BAD9DB4000AA4B4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */; settings = {ASSET_TAGS = (); }; };
 		AA6395611BADC43600A60AB4 /* ContactCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6395601BADC43600A60AB4 /* ContactCardViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		AA6395631BADD7BB00A60AB4 /* ContantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6395621BADD7BB00A60AB4 /* ContantManager.swift */; settings = {ASSET_TAGS = (); }; };
+		AA6395681BADD83000A60AB4 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6395671BADD83000A60AB4 /* ContactManager.swift */; settings = {ASSET_TAGS = (); }; };
 		EA0EED4A4463A2003D78D556 /* libPods-Contacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C87116621BE36DE3667B69 /* libPods-Contacts.a */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 		AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		AA63955D1BADB75C00A60AB4 /* Contacts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Contacts-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA6395601BADC43600A60AB4 /* ContactCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCardViewController.swift; sourceTree = "<group>"; };
-		AA6395621BADD7BB00A60AB4 /* ContantManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContantManager.swift; sourceTree = "<group>"; };
+		AA6395671BADD83000A60AB4 /* ContactManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 		D0C87116621BE36DE3667B69 /* libPods-Contacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Contacts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F74CC3B2B684AE539750281A /* Pods-Contacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts/Pods-Contacts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */,
-				AA6395621BADD7BB00A60AB4 /* ContantManager.swift */,
+				AA6395671BADD83000A60AB4 /* ContactManager.swift */,
 			);
 			name = "Data Managers";
 			sourceTree = "<group>";
@@ -225,11 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA6395681BADD83000A60AB4 /* ContactManager.swift in Sources */,
 				AA6395611BADC43600A60AB4 /* ContactCardViewController.swift in Sources */,
 				AA21630C1BAD9D63000AA4B4 /* ViewController.swift in Sources */,
 				AA21630A1BAD9D63000AA4B4 /* AppDelegate.swift in Sources */,
 				AA21631C1BAD9DB4000AA4B4 /* LocationManager.swift in Sources */,
-				AA6395631BADD7BB00A60AB4 /* ContantManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

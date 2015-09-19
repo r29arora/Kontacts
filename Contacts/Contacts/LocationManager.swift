@@ -11,34 +11,40 @@ import CoreLocation
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     struct Constants {
-        static let fireBaseUrl = "https://kontact.firebaseio.com/"
+        static let distanceThreshold = 2.0
     }
     
     static let manager = LocationManager()
 
     let locationManager = CLLocationManager()
     
-    let geoFireRef:Firebase
+    let fireBaseRef:Firebase
+    let userBaseRef: Firebase
     let geoFire:GeoFire
     
     var userID: String?
+    var myLoc: CLLocation
+    
 
     override init() {
-        self.geoFireRef = Firebase(url: Constants.fireBaseUrl)
-        self.geoFire = GeoFire(firebaseRef: self.geoFireRef)
-
+        self.fireBaseRef = Firebase(url: fireBaseUrl)
+        self.userBaseRef = self.fireBaseRef.childByAppendingPath("user")
+        self.geoFire = GeoFire(firebaseRef: self.fireBaseRef.childByAppendingPath("location"))
+        self.myLoc = CLLocation()
+        
         super.init()
         self.locationManager.delegate = self
         
-        let userID = NSUUID().UUIDString
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setObject(userID, forKey: "user_id")
-        self.userID = userID
+        self.userID = userDefaults.stringForKey(kUserIDKey)
         self.startUpdating()
+        
+        self.userBaseRef.childByAppendingPath(self.userID).setValue(["firstName":"foo", "lastName":"bar"])
     }
 }
 
 // MARK: - CLLocationManagerDelegate
+
 
 extension LocationManager {
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -50,7 +56,11 @@ extension LocationManager {
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         NSLog("%@", newLocation)
         
+        if (self.myLoc.distanceFromLocation(newLocation) < 2.0) { return }
+        
         if let userID = self.userID {
+            NSLog("updated location")
+            self.myLoc = newLocation;
             self.geoFire.setLocation(newLocation, forKey: userID)
         } else {
             NSLog("should never happen")

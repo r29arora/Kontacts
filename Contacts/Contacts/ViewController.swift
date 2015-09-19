@@ -27,6 +27,18 @@ class ViewController: UIViewController,
     }()
 }
 
+// MARK: - Geo
+
+func geoQuery()
+{
+    let center = LocationManager.manager.myLoc
+    let circleQuery = LocationManager.manager.geoFire.queryAtLocation(center, withRadius: 0.4)
+    
+    circleQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
+        NSLog("%@, %@", key, location)
+    })
+}
+
 // MARK: - UIViewController
 
 extension ViewController {

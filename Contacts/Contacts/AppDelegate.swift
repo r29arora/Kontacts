@@ -8,6 +8,9 @@
 
 import UIKit
 
+let fireBaseUrl = "https://kontact.firebaseio.com/"
+let kUserIDKey = "user_id"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,7 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-
+        let userID = NSUUID().UUIDString
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setObject(userID, forKey: kUserIDKey)
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = UIColor.whiteColor()
 

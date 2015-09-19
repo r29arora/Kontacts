@@ -38,6 +38,12 @@ extension ViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         LocationManager.manager.requestAccess()
+
+        if !ContactManager.manager.contactDoesExist() {
+            let contactsViewController = ContactCardViewController()
+            let navigationController = UINavigationController(rootViewController: contactsViewController)
+            self.presentViewController(navigationController, animated: true, completion: nil)
+        }
     }
 
     override func viewWillLayoutSubviews() {

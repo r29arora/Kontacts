@@ -14,6 +14,10 @@ class ContactManager: NSObject {
 
     static let manager = ContactManager()
 
+    let userBaseRef: Firebase
+    let fireBaseRef:Firebase
+    var userID: String?
+
     var firstName: String = ""
     var lastName: String = ""
     var email: String = ""
@@ -22,13 +26,20 @@ class ContactManager: NSObject {
 
 
     override init() {
+        self.fireBaseRef = Firebase(url: fireBaseUrl)
+        self.userBaseRef = self.fireBaseRef.childByAppendingPath("user")
+
         super.init()
+
         let userDefaults = NSUserDefaults.standardUserDefaults()
         if let contactInfo = userDefaults.objectForKey(Constants.contactInfoDictionaryKey) as? NSDictionary {
             self.firstName = contactInfo["firstName"] as? String ?? ""
             self.lastName = contactInfo["lastName"] as? String ?? ""
             self.email = contactInfo["email"] as? String ?? ""
             self.phoneNumber = contactInfo["phoneNumber"] as? String ?? ""
+
+            self.userID = userDefaults.stringForKey(kUserIDKey)
+            self.userBaseRef.childByAppendingPath(self.userID).setValue(contactInfo)
         }
 
         if let encodedImage = NSUserDefaults.standardUserDefaults().objectForKey(Constants.contactImageKey) as? NSData {

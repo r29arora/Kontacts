@@ -19,7 +19,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     
     let fireBaseRef:Firebase
-    let userBaseRef: Firebase
     let geoFire:GeoFire
     
     var userID: String?
@@ -28,7 +27,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 
     override init() {
         self.fireBaseRef = Firebase(url: fireBaseUrl)
-        self.userBaseRef = self.fireBaseRef.childByAppendingPath("user")
         self.geoFire = GeoFire(firebaseRef: self.fireBaseRef.childByAppendingPath("location"))
         self.myLoc = CLLocation()
         
@@ -39,7 +37,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         self.userID = userDefaults.stringForKey(kUserIDKey)
         self.startUpdating()
         
-        self.userBaseRef.childByAppendingPath(self.userID).setValue(["firstName":"foo", "lastName":"bar"])
     }
 }
 

@@ -9,25 +9,30 @@
 class ContactManager: NSObject {
     struct Constants {
         static let contactInfoDictionaryKey = "contactsDictionary"
+        static let contactImageKey = "contactImage"
     }
 
     static let manager = ContactManager()
 
     var firstName: String = ""
     var lastName: String = ""
-    var email: [String] = []
-    var phoneNumber: [String] = []
+    var email: String = ""
+    var phoneNumber: String = ""
+    var image: UIImage?
 
 
     override init() {
         super.init()
-
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        if let contactInfo = userDefaults.objectForKey("contactsDictionary") as? NSDictionary {
+        if let contactInfo = userDefaults.objectForKey(Constants.contactInfoDictionaryKey) as? NSDictionary {
             self.firstName = contactInfo["firstName"] as? String ?? ""
             self.lastName = contactInfo["lastName"] as? String ?? ""
-            self.email = contactInfo["email"] as? [String] ?? []
-            self.phoneNumber = contactInfo["phoneNumber"] as? [String] ?? []
+            self.email = contactInfo["email"] as? String ?? ""
+            self.phoneNumber = contactInfo["phoneNumber"] as? String ?? ""
+        }
+
+        if let encodedImage = NSUserDefaults.standardUserDefaults().objectForKey(Constants.contactImageKey) as? NSData {
+            self.image = UIImage(data: encodedImage)
         }
     }
 }
@@ -36,10 +41,34 @@ class ContactManager: NSObject {
 
 extension ContactManager {
     func contactDoesExist() -> Bool {
-        if self.firstName == "" && self.lastName == "" {
+        if self.firstName == "" && self.lastName == "" && self.email == "" && self.phoneNumber == "" {
             return false
         }
 
         return true
+    }
+
+    func save(firstName firstName: String, lastName: String, email: String, phoneNumber: String) {
+        let contactDictionary = [
+            "firstName": firstName,
+            "lastName" : lastName,
+            "email" : email,
+            "phoneNumber": phoneNumber
+        ]
+        
+        NSUserDefaults.standardUserDefaults().setObject(contactDictionary, forKey: Constants.contactInfoDictionaryKey)
+
+        self.firstName = firstName
+        self.lastName = lastName
+        self.email = email
+        self.phoneNumber = phoneNumber
+    }
+
+    func saveImage(image: UIImage) {
+        if let imageData = UIImageJPEGRepresentation(image, 0.1) {
+            NSUserDefaults.standardUserDefaults().setObject(imageData, forKey: Constants.contactImageKey)
+        }
+
+        self.image = image
     }
 }

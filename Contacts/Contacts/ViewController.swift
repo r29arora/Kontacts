@@ -47,15 +47,19 @@ extension ViewController {
         self.view.addSubview(self.tableView)
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        LocationManager.manager.requestAccess()
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         if !ContactManager.manager.contactDoesExist() {
             let contactsViewController = ContactCardViewController()
             let navigationController = UINavigationController(rootViewController: contactsViewController)
             self.presentViewController(navigationController, animated: true, completion: nil)
         }
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        LocationManager.manager.requestAccess()
     }
 
     override func viewWillLayoutSubviews() {

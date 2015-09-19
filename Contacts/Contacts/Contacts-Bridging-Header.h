@@ -4,3 +4,4 @@
 
 #import "AFNetworking.h"
 #import <Firebase/Firebase.h>
+#import <GeoFire/GeoFire.h>

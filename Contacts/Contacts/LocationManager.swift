@@ -10,14 +10,31 @@ import Foundation
 import CoreLocation
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
+    struct Constants {
+        static let fireBaseUrl = "https://kontact.firebaseio.com/"
+    }
+    
     static let manager = LocationManager()
 
     let locationManager = CLLocationManager()
+    
+    let geoFireRef:Firebase
+    let geoFire:GeoFire
+    
+    var userID: String?
 
     override init() {
+        self.geoFireRef = Firebase(url: Constants.fireBaseUrl)
+        self.geoFire = GeoFire(firebaseRef: self.geoFireRef)
+
         super.init()
         self.locationManager.delegate = self
-
+        
+        let userID = NSUUID().UUIDString
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setObject(userID, forKey: "user_id")
+        self.userID = userID
+        
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.startUpdatingLocation()
         }
@@ -35,6 +52,12 @@ extension LocationManager {
 
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         NSLog("%@", newLocation)
+        
+        if let userID = self.userID {
+            self.geoFire.setLocation(newLocation, forKey: userID)
+        } else {
+            NSLog("should never happen")
+        }
     }
 }
 

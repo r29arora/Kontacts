@@ -12,11 +12,10 @@
 		AA2163111BAD9D63000AA4B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA2163101BAD9D63000AA4B4 /* Assets.xcassets */; };
 		AA2163141BAD9D63000AA4B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2163121BAD9D63000AA4B4 /* LaunchScreen.storyboard */; };
 		AA21631C1BAD9DB4000AA4B4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */; settings = {ASSET_TAGS = (); }; };
-		E20CD539402775D3CAF9DF18 /* Pods_Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0438715CD351969742161B37 /* Pods_Contacts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		EA0EED4A4463A2003D78D556 /* libPods-Contacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C87116621BE36DE3667B69 /* libPods-Contacts.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0438715CD351969742161B37 /* Pods_Contacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0567961A14CBC4D658A786F /* Pods-Contacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.release.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts/Pods-Contacts.release.xcconfig"; sourceTree = "<group>"; };
 		AA2163061BAD9D63000AA4B4 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2163091BAD9D63000AA4B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -25,6 +24,7 @@
 		AA2163131BAD9D63000AA4B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA2163151BAD9D63000AA4B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		D0C87116621BE36DE3667B69 /* libPods-Contacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Contacts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F74CC3B2B684AE539750281A /* Pods-Contacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts/Pods-Contacts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -33,7 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E20CD539402775D3CAF9DF18 /* Pods_Contacts.framework in Frameworks */,
+				EA0EED4A4463A2003D78D556 /* libPods-Contacts.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +83,7 @@
 		FF8B85BEE3C0999CD21B135E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0438715CD351969742161B37 /* Pods_Contacts.framework */,
+				D0C87116621BE36DE3667B69 /* libPods-Contacts.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -99,7 +99,6 @@
 				AA2163021BAD9D63000AA4B4 /* Sources */,
 				AA2163031BAD9D63000AA4B4 /* Frameworks */,
 				AA2163041BAD9D63000AA4B4 /* Resources */,
-				666BC1FB559CD39C4A04EDD7 /* Embed Pods Frameworks */,
 				A42FC1F2E156039F5F7417E8 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -170,21 +169,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		666BC1FB559CD39C4A04EDD7 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Contacts/Pods-Contacts-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A42FC1F2E156039F5F7417E8 /* Copy Pods Resources */ = {

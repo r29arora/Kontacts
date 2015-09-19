@@ -6,6 +6,35 @@
 //  Copyright © 2015 Rajul Arora. All rights reserved.
 //
 
+class User: NSObject {
+    var key: String
+    var firstName: String
+    var lastName: String
+    var email: String
+    var phoneNumber: String
+    var image: UIImage?
+    
+    init(key:String,
+        firstName:String,
+        lastName:String,
+        email:String,
+        phoneNumber:String,
+        image:UIImage?) {
+        
+        self.key = key
+        self.firstName = firstName
+        self.lastName = lastName
+        self.email = email
+        self.phoneNumber = phoneNumber
+        
+        super.init()
+    }
+}
+
+@objc protocol ContactManagerDelegate {
+    func contactManagerDidUpdateWithUser(user: User)
+}
+
 class ContactManager: NSObject {
     struct Constants {
         static let contactInfoDictionaryKey = "contactsDictionary"
@@ -23,7 +52,8 @@ class ContactManager: NSObject {
     var email: String = ""
     var phoneNumber: String = ""
     var image: UIImage?
-
+    
+    weak var delegate:ContactManagerDelegate?
 
     override init() {
         self.fireBaseRef = Firebase(url: fireBaseUrl)
@@ -96,6 +126,40 @@ extension ContactManager {
         {
             let imageString = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
             self.userBaseRef.childByAppendingPath(self.userID).updateChildValues(["image": imageString])
+        }
+    }
+    
+    func userWithKey(key: String)
+    {
+        self.userBaseRef.childByAppendingPath(key).observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if let
+                contactInfo = snapshot.value as? NSDictionary,
+                firstName = contactInfo["firstName"] as? String,
+                lastName = contactInfo["lastName"] as? String,
+                email = contactInfo["email"] as? String,
+                phoneNumber = contactInfo["phoneNumber"] as? String
+            {
+
+                let user = User(
+                    key: key,
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    phoneNumber: phoneNumber,
+                    image: nil
+                )
+                
+                if let
+                    imageString = contactInfo["image"] as? String,
+                    imageData = NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+                {
+                    user.image = UIImage(data: imageData)
+                }
+                
+                self.delegate?.contactManagerDidUpdateWithUser(user)
+            }
+        }) { (error) -> Void in
+            NSLog("error - %@", error.description)
         }
     }
 }

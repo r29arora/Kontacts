@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController,
     UITableViewDelegate,
     UITableViewDataSource,
-    LocationManagerDelegate
+    LocationManagerDelegate,
+    ContactManagerDelegate
 {
     struct Constants {
         static let rowHeight: CGFloat = 44.0
@@ -27,7 +28,7 @@ class ViewController: UIViewController,
         return tableView
     }()
     
-    var userArray = []
+    var userArray = NSMutableArray()
     var userID: String?
     
 }
@@ -66,6 +67,8 @@ extension ViewController {
         
         LocationManager.manager.requestAccess()
         LocationManager.manager.delegate = self;
+        
+        ContactManager.manager.delegate = self;
     }
 
     override func viewWillLayoutSubviews() {
@@ -79,7 +82,7 @@ extension ViewController {
 extension ViewController {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifier, forIndexPath: indexPath)
-        cell.textLabel?.text = "Something"
+        cell.textLabel?.text = (userArray.objectAtIndex(indexPath.row) as? User)?.firstName
         return cell
     }
 
@@ -91,7 +94,7 @@ extension ViewController {
 
 extension ViewController {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return userArray.count
     }
 }
 
@@ -100,12 +103,43 @@ extension ViewController {
     func locationManagerUserEnteredRadius(key: String) {
         if (self.userID == key) { return; }
         NSLog("user entered: %@", key)
+        ContactManager.manager.userWithKey(key)
         
     }
     
     func locationManagerUserExitedRadius(key: String) {
         if (self.userID == key) { return; }
         NSLog("user exited: %@", key)
+        
+        var index = 0
+        var found = false
+        
+        for user in self.userArray {
+            if user.key == key {
+                found = true
+                break;
+            }
+            
+            index++
+        }
+        
+        if found {
+            self.userArray.removeObjectAtIndex(index)
+            self.tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)], withRowAnimation: .Automatic)
+        }
+        
+    }
+}
+
+// MARK: - ContactManagerDelegate
+extension ViewController {
+    func contactManagerDidUpdateWithUser(user: User) {
+        let newArray = userArray.filter { $0.key == user.key }
+        
+        if newArray.count == 0 {
+            userArray.addObject(user)
+            tableView.reloadData()
+        }
     }
 }
 

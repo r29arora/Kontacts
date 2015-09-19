@@ -13,6 +13,7 @@
 		AA2163141BAD9D63000AA4B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2163121BAD9D63000AA4B4 /* LaunchScreen.storyboard */; };
 		AA21631C1BAD9DB4000AA4B4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */; settings = {ASSET_TAGS = (); }; };
 		AA63955F1BADB75C00A60AB4 /* Contacts-Bridging-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63955E1BADB75C00A60AB4 /* Contacts-Bridging-Header.m */; settings = {ASSET_TAGS = (); }; };
+		AA6395611BADC43600A60AB4 /* ContactCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6395601BADC43600A60AB4 /* ContactCardViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		EA0EED4A4463A2003D78D556 /* libPods-Contacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C87116621BE36DE3667B69 /* libPods-Contacts.a */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		AA63955D1BADB75C00A60AB4 /* Contacts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Contacts-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA63955E1BADB75C00A60AB4 /* Contacts-Bridging-Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Contacts-Bridging-Header.m"; sourceTree = "<group>"; };
+		AA6395601BADC43600A60AB4 /* ContactCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCardViewController.swift; sourceTree = "<group>"; };
 		D0C87116621BE36DE3667B69 /* libPods-Contacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Contacts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F74CC3B2B684AE539750281A /* Pods-Contacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts/Pods-Contacts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 				AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */,
 				AA63955E1BADB75C00A60AB4 /* Contacts-Bridging-Header.m */,
 				AA63955D1BADB75C00A60AB4 /* Contacts-Bridging-Header.h */,
+				AA6395601BADC43600A60AB4 /* ContactCardViewController.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA6395611BADC43600A60AB4 /* ContactCardViewController.swift in Sources */,
 				AA21630C1BAD9D63000AA4B4 /* ViewController.swift in Sources */,
 				AA63955F1BADB75C00A60AB4 /* Contacts-Bridging-Header.m in Sources */,
 				AA21630A1BAD9D63000AA4B4 /* AppDelegate.swift in Sources */,

@@ -34,10 +34,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setObject(userID, forKey: "user_id")
         self.userID = userID
-        
-        if CLLocationManager.locationServicesEnabled() {
-            self.locationManager.startUpdatingLocation()
-        }
+        self.startUpdating()
     }
 }
 
@@ -67,6 +64,19 @@ extension LocationManager {
     func requestAccess() {
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             self.locationManager.requestAlwaysAuthorization()
+        }
+    }
+
+    func removeUser() {
+        if let userID = self.userID {
+            self.locationManager.stopUpdatingLocation()
+            self.geoFire.removeKey(userID)
+        }
+    }
+
+    func startUpdating() {
+        if CLLocationManager.locationServicesEnabled() {
+            self.locationManager.startUpdatingLocation()
         }
     }
 }

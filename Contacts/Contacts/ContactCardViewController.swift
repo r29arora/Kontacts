@@ -71,6 +71,21 @@ class ContactCardViewController: UIViewController,
     }()
 
     var didSetImage: Bool = false
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+
+        let manager = ContactManager.manager
+        self.firstNameTextField.text = manager.firstName
+        self.lastNameTextField.text = manager.lastName
+        self.emailTextField.text = manager.email
+        self.phoneNumberTextField.text = manager.phoneNumber
+        self.imageView.image = manager.image
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 // MARK: - UIViewController

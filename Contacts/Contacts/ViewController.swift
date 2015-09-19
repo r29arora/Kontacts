@@ -39,6 +39,13 @@ extension ViewController {
         super.loadView()
         self.view.addSubview(self.tableView)
         self.navigationItem.title = "Kontact"
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(named: "user")?.imageWithRenderingMode(.AlwaysTemplate),
+            style: .Plain,
+            target: self,
+            action: "profileButtonTapped:"
+        )
     }
 
     override func viewDidLoad() {
@@ -102,8 +109,12 @@ extension ViewController {
     }
 }
 
-// MARK: - Private Methods
+// MARK: - Events
 
 extension ViewController {
-
+    func profileButtonTapped(sender: AnyObject?) {
+        let viewController = ContactCardViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        self.presentViewController(navigationController, animated: true, completion: nil)
+    }
 }

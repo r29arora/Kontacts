@@ -13,6 +13,7 @@
 		AA2163141BAD9D63000AA4B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2163121BAD9D63000AA4B4 /* LaunchScreen.storyboard */; };
 		AA21631C1BAD9DB4000AA4B4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */; settings = {ASSET_TAGS = (); }; };
 		AA6395611BADC43600A60AB4 /* ContactCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6395601BADC43600A60AB4 /* ContactCardViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		AA6395631BADD7BB00A60AB4 /* ContantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6395621BADD7BB00A60AB4 /* ContantManager.swift */; settings = {ASSET_TAGS = (); }; };
 		EA0EED4A4463A2003D78D556 /* libPods-Contacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C87116621BE36DE3667B69 /* libPods-Contacts.a */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		AA63955D1BADB75C00A60AB4 /* Contacts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Contacts-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA6395601BADC43600A60AB4 /* ContactCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCardViewController.swift; sourceTree = "<group>"; };
+		AA6395621BADD7BB00A60AB4 /* ContantManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContantManager.swift; sourceTree = "<group>"; };
 		D0C87116621BE36DE3667B69 /* libPods-Contacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Contacts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F74CC3B2B684AE539750281A /* Pods-Contacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts/Pods-Contacts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,16 +75,41 @@
 		AA2163081BAD9D63000AA4B4 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				AA2163091BAD9D63000AA4B4 /* AppDelegate.swift */,
+				AA6395661BADD7E500A60AB4 /* Supporting Files */,
+				AA6395651BADD7D800A60AB4 /* Data Managers */,
+				AA6395641BADD7C100A60AB4 /* View Controllers */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		AA6395641BADD7C100A60AB4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				AA21630B1BAD9D63000AA4B4 /* ViewController.swift */,
+				AA6395601BADC43600A60AB4 /* ContactCardViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		AA6395651BADD7D800A60AB4 /* Data Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */,
+				AA6395621BADD7BB00A60AB4 /* ContantManager.swift */,
+			);
+			name = "Data Managers";
+			sourceTree = "<group>";
+		};
+		AA6395661BADD7E500A60AB4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA2163091BAD9D63000AA4B4 /* AppDelegate.swift */,
 				AA2163101BAD9D63000AA4B4 /* Assets.xcassets */,
 				AA2163121BAD9D63000AA4B4 /* LaunchScreen.storyboard */,
 				AA2163151BAD9D63000AA4B4 /* Info.plist */,
-				AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */,
 				AA63955D1BADB75C00A60AB4 /* Contacts-Bridging-Header.h */,
-				AA6395601BADC43600A60AB4 /* ContactCardViewController.swift */,
 			);
-			path = Contacts;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		FF8B85BEE3C0999CD21B135E /* Frameworks */ = {
@@ -202,6 +229,7 @@
 				AA21630C1BAD9D63000AA4B4 /* ViewController.swift in Sources */,
 				AA21630A1BAD9D63000AA4B4 /* AppDelegate.swift in Sources */,
 				AA21631C1BAD9DB4000AA4B4 /* LocationManager.swift in Sources */,
+				AA6395631BADD7BB00A60AB4 /* ContantManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

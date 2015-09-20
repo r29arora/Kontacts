@@ -97,7 +97,7 @@ extension LocationManager {
     func geoQuery(mylocation: CLLocation)
     {
         let center = mylocation
-        let circleQuery = geoFire.queryAtLocation(center, withRadius: 0.2)
+        let circleQuery = geoFire.queryAtLocation(center, withRadius: 0.4)
 
         circleQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
             self.delegate?.locationManagerUserEnteredRadius(key)

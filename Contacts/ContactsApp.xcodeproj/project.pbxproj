@@ -88,7 +88,6 @@
 				AA6395661BADD7E500A60AB4 /* Supporting Files */,
 				AA6395651BADD7D800A60AB4 /* Data Managers */,
 				AA6395641BADD7C100A60AB4 /* View Controllers */,
-				63B8F2C01BAE656C00C4C9C8 /* ContactsApp-Bridging-Header.h */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -117,6 +116,7 @@
 		AA6395661BADD7E500A60AB4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63B8F2C01BAE656C00C4C9C8 /* ContactsApp-Bridging-Header.h */,
 				AA2163091BAD9D63000AA4B4 /* AppDelegate.swift */,
 				AA2163101BAD9D63000AA4B4 /* Assets.xcassets */,
 				AA2163121BAD9D63000AA4B4 /* LaunchScreen.storyboard */,

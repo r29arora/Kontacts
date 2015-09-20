@@ -110,6 +110,15 @@ extension ViewController {
             cell.avatarView.image = image
         }
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let user = self.userArray[indexPath.row] as? User {
+            let viewController = DisplayContactViewController(user: user)
+            self.navigationController?.pushViewController(viewController, animated: true)
+            
+            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource

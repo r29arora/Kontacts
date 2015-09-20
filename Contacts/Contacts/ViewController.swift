@@ -98,16 +98,26 @@ extension ViewController {
 extension ViewController {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifier, forIndexPath: indexPath) as! AvatarTableViewCell
-        cell.textLabel?.text = (userArray.objectAtIndex(indexPath.row) as? User)?.firstName
         cell.contentView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0)
         cell.textLabel?.textColor = UIColor.whiteColor()
         cell.backgroundColor = UIColor.clearColor()
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         return cell
     }
 
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if let image = (self.userArray[indexPath.row] as? User)?.image, cell = cell as? AvatarTableViewCell {
-            cell.avatarView.image = image
+        if let cell = cell as? AvatarTableViewCell {
+            if let image = (self.userArray[indexPath.row] as? User)?.image {
+                cell.avatarView.image = image
+            } else {
+                cell.avatarView.image = UIImage(named: "user")?.imageWithRenderingMode(.AlwaysTemplate)
+            }
+        }
+        
+
+        
+        if let user = userArray[indexPath.row] as? User {
+            cell.textLabel?.text = "\(user.firstName) \(user.lastName)"
         }
     }
     
@@ -165,12 +175,27 @@ extension ViewController {
 // MARK: - ContactManagerDelegate
 extension ViewController {
     func contactManagerDidUpdateWithUser(user: User) {
-        let newArray = userArray.filter { $0.key == user.key }
         
-        if newArray.count == 0 {
-            userArray.addObject(user)
-            tableView.reloadData()
+        var index = 0
+        var found = false
+        
+        for currentuser in self.userArray {
+            if currentuser.key == user.key {
+                found = true
+                break;
+            }
+            
+            index++
         }
+        
+        if found {
+            self.userArray[index] = user
+            self.tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)], withRowAnimation: .Automatic)
+        } else {
+            userArray.addObject(user)
+            tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: userArray.count - 1, inSection: 0)], withRowAnimation: .Automatic)
+        }
+
     }
 }
 

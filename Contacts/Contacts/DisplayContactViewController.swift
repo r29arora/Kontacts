@@ -9,9 +9,9 @@
 import Contacts
 
 struct Constants {
-    static let imageViewSize = CGSize(width: 100.0, height: 100.0)
+    static let imageViewSize = CGSize(width: 150.0, height: 150.0)
     static let imageViewOffset: CGFloat = 25.0
-    static let labelOffset: CGFloat = 10.0
+    static let labelOffset: CGFloat = 20.0
 }
 
 class DisplayContactViewController:UIViewController {
@@ -31,7 +31,7 @@ class DisplayContactViewController:UIViewController {
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        scrollView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
         scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()
@@ -39,21 +39,24 @@ class DisplayContactViewController:UIViewController {
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.backgroundColor = UIColor.clearColor()
-        nameLabel.textColor = UIColor.blackColor()
+        nameLabel.textColor = UIColor.whiteColor()
+        nameLabel.textAlignment = .Center
         return nameLabel
     }()
     
     private lazy var phoneLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.backgroundColor = UIColor.clearColor()
-        nameLabel.textColor = UIColor.blackColor()
+        nameLabel.textColor = UIColor.whiteColor()
+        nameLabel.textAlignment = .Center
         return nameLabel
     }()
     
     private lazy var emailLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.backgroundColor = UIColor.clearColor()
-        nameLabel.textColor = UIColor.blackColor()
+        nameLabel.textColor = UIColor.whiteColor()
+        nameLabel.textAlignment = .Center
         return nameLabel
     }()
     
@@ -128,5 +131,29 @@ extension DisplayContactViewController {
     {
         let contact = CNMutableContact()
         
+        contact.givenName = self.user.firstName
+        contact.familyName = self.user.lastName
+        
+        if let image = self.user.image {
+            contact.imageData = UIImagePNGRepresentation(image)
+        }
+        
+        let homeEmail = CNLabeledValue(label:CNLabelHome, value:self.user.email)
+        
+        contact.emailAddresses = [homeEmail]
+        
+        contact.phoneNumbers = [CNLabeledValue(
+            label:CNLabelPhoneNumberiPhone,
+            value:CNPhoneNumber(stringValue:self.user.phoneNumber))]
+        
+        let store = CNContactStore()
+        let saveRequest = CNSaveRequest()
+        saveRequest.addContact(contact, toContainerWithIdentifier:nil)
+        
+        do {
+            try store.executeSaveRequest(saveRequest)
+        } catch _ {}
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 }

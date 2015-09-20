@@ -131,7 +131,7 @@ extension ContactManager {
     
     func userWithKey(key: String)
     {
-        self.userBaseRef.childByAppendingPath(key).observeSingleEventOfType(.Value, withBlock: { snapshot in
+        self.userBaseRef.childByAppendingPath(key).observeEventType(.Value, withBlock: { snapshot in
             if let
                 contactInfo = snapshot.value as? NSDictionary,
                 firstName = contactInfo["firstName"] as? String,

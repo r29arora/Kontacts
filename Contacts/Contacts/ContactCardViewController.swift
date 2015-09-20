@@ -12,8 +12,7 @@ class ContactCardViewController: UIViewController,
     UITextFieldDelegate
 {
     struct Constants {
-        static let imageViewSize = CGSize(width: 100.0, height: 100.0)
-        static let imageViewOffset: CGFloat = 50.0
+        static let imageViewSize = CGSize(width: 150.0, height: 150.0)
         static let textFieldHeight: CGFloat = 50.0
     }
 
@@ -32,24 +31,34 @@ class ContactCardViewController: UIViewController,
 
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        scrollView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.indicatorStyle = .White
         return scrollView
     }()
 
     private lazy var firstNameTextField: UITextField = {
         let textField = UITextField()
-        textField.textAlignment = .Left
-        textField.textColor = UIColor.blackColor()
-        textField.placeholder = "First Name"
+        textField.textAlignment = .Center
+        textField.textColor = UIColor.whiteColor()
+        textField.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "First Name",
+            attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        )
         textField.delegate = self
         return textField
     }()
 
     private lazy var lastNameTextField: UITextField = {
         let textField = UITextField()
-        textField.textAlignment = .Left
-        textField.placeholder = "Last Name"
+        textField.textAlignment = .Center
+        textField.textColor = UIColor.whiteColor()
+        textField.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Last Name",
+            attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        )
         textField.delegate = self
         return textField
     }()
@@ -57,7 +66,13 @@ class ContactCardViewController: UIViewController,
     private lazy var phoneNumberTextField: UITextField = {
         let textField = UITextField()
         textField.keyboardType = .PhonePad
-        textField.placeholder = "Phone Number"
+        textField.textAlignment = .Center
+        textField.textColor = UIColor.whiteColor()
+        textField.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Phone Number",
+            attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        )
         textField.delegate = self
         return textField
     }()
@@ -65,7 +80,13 @@ class ContactCardViewController: UIViewController,
     private lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.keyboardType = .EmailAddress
-        textField.placeholder = "Email"
+        textField.textAlignment = .Center
+        textField.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Email",
+            attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        )
+        textField.textColor = UIColor.whiteColor()
         textField.delegate = self
         return textField
     }()
@@ -93,8 +114,13 @@ class ContactCardViewController: UIViewController,
 extension ContactCardViewController {
     override func loadView() {
         super.loadView()
-        self.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
 
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.alpha = 0.7
+        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.barStyle = .Black
+
+        self.view.backgroundColor = UIColor.whiteColor()
         let tapRecognizer = UITapGestureRecognizer(target: self, action: "didTapView:")
         self.view.addGestureRecognizer(tapRecognizer)
 
@@ -133,7 +159,7 @@ extension ContactCardViewController {
         self.imageView.frame = CGRect(
             origin: CGPoint(
                 x: (self.view.frame.width - Constants.imageViewSize.width) / 2.0,
-                y: Constants.imageViewOffset
+                y: 10.0
             ),
             size: Constants.imageViewSize
         )
@@ -162,7 +188,7 @@ extension ContactCardViewController {
         self.phoneNumberTextField.frame = CGRect(
             x: 20.0,
             y: self.emailTextField.frame.origin.y + Constants.textFieldHeight + 10.0,
-            width: self.view.frame.width - 20.0,
+            width: self.view.frame.width - 40.0,
             height: Constants.textFieldHeight
         )
 

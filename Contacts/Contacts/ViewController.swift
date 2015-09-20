@@ -24,9 +24,12 @@ class ViewController: UIViewController,
         tableView.rowHeight = Constants.rowHeight
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
         tableView.registerClass(AvatarTableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
         return tableView
     }()
+
+    private var mapViewController = BackgroundMapViewController()
     
     var userArray = NSMutableArray()
     var userID: String?
@@ -37,8 +40,17 @@ class ViewController: UIViewController,
 extension ViewController {
     override func loadView() {
         super.loadView()
+        self.addChildViewController(self.mapViewController)
+        self.view.addSubview(self.mapViewController.view)
+        self.mapViewController.didMoveToParentViewController(self)
+        self.mapViewController.view.frame = self.view.bounds
+
         self.view.addSubview(self.tableView)
         self.navigationItem.title = "Kontact"
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.alpha = 0.7
+        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.barStyle = .Black
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "user")?.imageWithRenderingMode(.AlwaysTemplate),
@@ -72,7 +84,12 @@ extension ViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        self.tableView.frame = self.view.bounds
+        self.tableView.frame = CGRect(
+            x: 0.0,
+            y: self.topLayoutGuide.length,
+            width: self.view.bounds.width,
+            height: self.view.bounds.height - self.topLayoutGuide.length
+        )
     }
 }
 
@@ -82,6 +99,9 @@ extension ViewController {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifier, forIndexPath: indexPath) as! AvatarTableViewCell
         cell.textLabel?.text = (userArray.objectAtIndex(indexPath.row) as? User)?.firstName
+        cell.contentView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0)
+        cell.textLabel?.textColor = UIColor.whiteColor()
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
 

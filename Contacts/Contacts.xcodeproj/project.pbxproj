@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6320E91F1BAE3AB400029B8A /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320E91E1BAE3AB400029B8A /* AvatarTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		AA21630A1BAD9D63000AA4B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2163091BAD9D63000AA4B4 /* AppDelegate.swift */; };
 		AA21630C1BAD9D63000AA4B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21630B1BAD9D63000AA4B4 /* ViewController.swift */; };
 		AA2163111BAD9D63000AA4B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA2163101BAD9D63000AA4B4 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6320E91E1BAE3AB400029B8A /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
 		A0567961A14CBC4D658A786F /* Pods-Contacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.release.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts/Pods-Contacts.release.xcconfig"; sourceTree = "<group>"; };
 		AA2163061BAD9D63000AA4B4 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2163091BAD9D63000AA4B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				AA21630B1BAD9D63000AA4B4 /* ViewController.swift */,
+				6320E91E1BAE3AB400029B8A /* AvatarTableViewCell.swift */,
 				AA6395601BADC43600A60AB4 /* ContactCardViewController.swift */,
 			);
 			name = "View Controllers";
@@ -225,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6320E91F1BAE3AB400029B8A /* AvatarTableViewCell.swift in Sources */,
 				AA6395681BADD83000A60AB4 /* ContactManager.swift in Sources */,
 				AA6395611BADC43600A60AB4 /* ContactCardViewController.swift in Sources */,
 				AA21630C1BAD9D63000AA4B4 /* ViewController.swift in Sources */,

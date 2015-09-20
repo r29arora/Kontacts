@@ -15,7 +15,7 @@ class ViewController: UIViewController,
     ContactManagerDelegate
 {
     struct Constants {
-        static let rowHeight: CGFloat = 44.0
+        static let rowHeight: CGFloat = 54.0
         static let cellIdentifier = "cell"
     }
 
@@ -24,13 +24,12 @@ class ViewController: UIViewController,
         tableView.rowHeight = Constants.rowHeight
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+        tableView.registerClass(AvatarTableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
         return tableView
     }()
     
     var userArray = NSMutableArray()
     var userID: String?
-    
 }
 
 // MARK: - UIViewController
@@ -81,12 +80,15 @@ extension ViewController {
 
 extension ViewController {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifier, forIndexPath: indexPath) as! AvatarTableViewCell
         cell.textLabel?.text = (userArray.objectAtIndex(indexPath.row) as? User)?.firstName
         return cell
     }
 
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if let image = (self.userArray[indexPath.row] as? User)?.image, cell = cell as? AvatarTableViewCell {
+            cell.avatarView.image = image
+        }
     }
 }
 

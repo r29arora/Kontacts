@@ -6,6 +6,8 @@
 //  Copyright © 2015 Rajul Arora. All rights reserved.
 //
 
+import Contacts
+
 struct Constants {
     static let imageViewSize = CGSize(width: 100.0, height: 100.0)
     static let imageViewOffset: CGFloat = 25.0
@@ -15,7 +17,6 @@ struct Constants {
 class DisplayContactViewController:UIViewController {
     
     private var user: User
-    
 
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -125,8 +126,7 @@ extension DisplayContactViewController {
 extension DisplayContactViewController {
     func didTapAddContact(sender: AnyObject?)
     {
+        let contact = CNMutableContact()
         
     }
-    
-
 }

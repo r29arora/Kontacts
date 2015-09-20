@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C2343C3CD7EAA9C9EF1F2F3 /* libPods-ContactsApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03920FF9ECA678D846712B34 /* libPods-ContactsApp.a */; };
 		6320E91F1BAE3AB400029B8A /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320E91E1BAE3AB400029B8A /* AvatarTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		6320E9211BAE46E800029B8A /* DisplayContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320E9201BAE46E800029B8A /* DisplayContactViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		6320E9261BAE5FF700029B8A /* DisplayContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320E9251BAE5FF700029B8A /* DisplayContactViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		63B8F2BA1BAE643400C4C9C8 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B8F2B91BAE643400C4C9C8 /* Contacts.framework */; };
 		AA21630A1BAD9D63000AA4B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2163091BAD9D63000AA4B4 /* AppDelegate.swift */; };
 		AA21630C1BAD9D63000AA4B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21630B1BAD9D63000AA4B4 /* ViewController.swift */; };
 		AA2163111BAD9D63000AA4B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA2163101BAD9D63000AA4B4 /* Assets.xcassets */; };
@@ -16,15 +18,16 @@
 		AA21631C1BAD9DB4000AA4B4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */; settings = {ASSET_TAGS = (); }; };
 		AA6395611BADC43600A60AB4 /* ContactCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6395601BADC43600A60AB4 /* ContactCardViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		AA6395681BADD83000A60AB4 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6395671BADD83000A60AB4 /* ContactManager.swift */; settings = {ASSET_TAGS = (); }; };
-		EA0EED4A4463A2003D78D556 /* libPods-Contacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C87116621BE36DE3667B69 /* libPods-Contacts.a */; };
+		AA63956A1BAE47F700A60AB4 /* BackgroundMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6395691BAE47F700A60AB4 /* BackgroundMapViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03920FF9ECA678D846712B34 /* libPods-ContactsApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContactsApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6320E91E1BAE3AB400029B8A /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
-		6320E9201BAE46E800029B8A /* DisplayContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayContactViewController.swift; sourceTree = "<group>"; };
-		6320E9221BAE5EE100029B8A /* ContactsApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContactsApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		A0567961A14CBC4D658A786F /* Pods-Contacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.release.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts/Pods-Contacts.release.xcconfig"; sourceTree = "<group>"; };
-		AA2163061BAD9D63000AA4B4 /* ContactsAppApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsAppApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6320E9251BAE5FF700029B8A /* DisplayContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayContactViewController.swift; sourceTree = "<group>"; };
+		63B8F2B91BAE643400C4C9C8 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		63B8F2C01BAE656C00C4C9C8 /* ContactsApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContactsApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA2163061BAD9D63000AA4B4 /* ContactsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2163091BAD9D63000AA4B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA21630B1BAD9D63000AA4B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AA2163101BAD9D63000AA4B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -33,8 +36,10 @@
 		AA21631B1BAD9DB4000AA4B4 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		AA6395601BADC43600A60AB4 /* ContactCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCardViewController.swift; sourceTree = "<group>"; };
 		AA6395671BADD83000A60AB4 /* ContactManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
+		AA6395691BAE47F700A60AB4 /* BackgroundMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundMapViewController.swift; sourceTree = "<group>"; };
+		AB12D186D9C9CB8CB6BE6E3A /* Pods-ContactsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContactsApp/Pods-ContactsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		BC0CB2981BC5567607E93EAD /* Pods-ContactsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactsApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContactsApp/Pods-ContactsApp.release.xcconfig"; sourceTree = "<group>"; };
 		D0C87116621BE36DE3667B69 /* libPods-Contacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Contacts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F74CC3B2B684AE539750281A /* Pods-Contacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts/Pods-Contacts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,18 +47,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA0EED4A4463A2003D78D556 /* libPods-Contacts.a in Frameworks */,
+				63B8F2BA1BAE643400C4C9C8 /* Contacts.framework in Frameworks */,
+				5C2343C3CD7EAA9C9EF1F2F3 /* libPods-ContactsApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8F595A6884FFA5D20B95EC16 /* Pods */ = {
+		9706B0D8E63A5161EFCB2343 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F74CC3B2B684AE539750281A /* Pods-Contacts.debug.xcconfig */,
-				A0567961A14CBC4D658A786F /* Pods-Contacts.release.xcconfig */,
+				AB12D186D9C9CB8CB6BE6E3A /* Pods-ContactsApp.debug.xcconfig */,
+				BC0CB2981BC5567607E93EAD /* Pods-ContactsApp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -63,15 +69,15 @@
 			children = (
 				AA2163081BAD9D63000AA4B4 /* Contacts */,
 				AA2163071BAD9D63000AA4B4 /* Products */,
-				8F595A6884FFA5D20B95EC16 /* Pods */,
 				FF8B85BEE3C0999CD21B135E /* Frameworks */,
+				9706B0D8E63A5161EFCB2343 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		AA2163071BAD9D63000AA4B4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA2163061BAD9D63000AA4B4 /* ContactsAppApp.app */,
+				AA2163061BAD9D63000AA4B4 /* ContactsApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,6 +88,7 @@
 				AA6395661BADD7E500A60AB4 /* Supporting Files */,
 				AA6395651BADD7D800A60AB4 /* Data Managers */,
 				AA6395641BADD7C100A60AB4 /* View Controllers */,
+				63B8F2C01BAE656C00C4C9C8 /* ContactsApp-Bridging-Header.h */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -91,8 +98,9 @@
 			children = (
 				AA21630B1BAD9D63000AA4B4 /* ViewController.swift */,
 				6320E91E1BAE3AB400029B8A /* AvatarTableViewCell.swift */,
+				6320E9251BAE5FF700029B8A /* DisplayContactViewController.swift */,
 				AA6395601BADC43600A60AB4 /* ContactCardViewController.swift */,
-				6320E9201BAE46E800029B8A /* DisplayContactViewController.swift */,
+				AA6395691BAE47F700A60AB4 /* BackgroundMapViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -113,7 +121,6 @@
 				AA2163101BAD9D63000AA4B4 /* Assets.xcassets */,
 				AA2163121BAD9D63000AA4B4 /* LaunchScreen.storyboard */,
 				AA2163151BAD9D63000AA4B4 /* Info.plist */,
-				6320E9221BAE5EE100029B8A /* ContactsApp-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -121,7 +128,9 @@
 		FF8B85BEE3C0999CD21B135E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				63B8F2B91BAE643400C4C9C8 /* Contacts.framework */,
 				D0C87116621BE36DE3667B69 /* libPods-Contacts.a */,
+				03920FF9ECA678D846712B34 /* libPods-ContactsApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -129,9 +138,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AA2163051BAD9D63000AA4B4 /* ContactsAppApp */ = {
+		AA2163051BAD9D63000AA4B4 /* ContactsApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA2163181BAD9D63000AA4B4 /* Build configuration list for PBXNativeTarget "ContactsAppApp" */;
+			buildConfigurationList = AA2163181BAD9D63000AA4B4 /* Build configuration list for PBXNativeTarget "ContactsApp" */;
 			buildPhases = (
 				4C4DDF3A36DAF64A0A5C023C /* Check Pods Manifest.lock */,
 				AA2163021BAD9D63000AA4B4 /* Sources */,
@@ -143,9 +152,9 @@
 			);
 			dependencies = (
 			);
-			name = ContactsAppApp;
+			name = ContactsApp;
 			productName = Contacts;
-			productReference = AA2163061BAD9D63000AA4B4 /* ContactsAppApp.app */;
+			productReference = AA2163061BAD9D63000AA4B4 /* ContactsApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +185,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AA2163051BAD9D63000AA4B4 /* ContactsAppApp */,
+				AA2163051BAD9D63000AA4B4 /* ContactsApp */,
 			);
 		};
 /* End PBXProject section */
@@ -221,7 +230,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Contacts/Pods-Contacts-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContactsApp/Pods-ContactsApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -232,11 +241,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6320E91F1BAE3AB400029B8A /* AvatarTableViewCell.swift in Sources */,
-				6320E9211BAE46E800029B8A /* DisplayContactViewController.swift in Sources */,
 				AA6395681BADD83000A60AB4 /* ContactManager.swift in Sources */,
 				AA6395611BADC43600A60AB4 /* ContactCardViewController.swift in Sources */,
+				AA63956A1BAE47F700A60AB4 /* BackgroundMapViewController.swift in Sources */,
 				AA21630C1BAD9D63000AA4B4 /* ViewController.swift in Sources */,
 				AA21630A1BAD9D63000AA4B4 /* AppDelegate.swift in Sources */,
+				6320E9261BAE5FF700029B8A /* DisplayContactViewController.swift in Sources */,
 				AA21631C1BAD9DB4000AA4B4 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,17 +350,18 @@
 		};
 		AA2163191BAD9D63000AA4B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F74CC3B2B684AE539750281A /* Pods-Contacts.debug.xcconfig */;
+			baseConfigurationReference = AB12D186D9C9CB8CB6BE6E3A /* Pods-ContactsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Contacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rajularora.Contacts;
-				PRODUCT_NAME = ContactsAppApp;
+				PRODUCT_NAME = ContactsApp;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Contacts/ContactsApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -359,17 +370,18 @@
 		};
 		AA21631A1BAD9D63000AA4B4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A0567961A14CBC4D658A786F /* Pods-Contacts.release.xcconfig */;
+			baseConfigurationReference = BC0CB2981BC5567607E93EAD /* Pods-ContactsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Contacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rajularora.Contacts;
-				PRODUCT_NAME = ContactsAppApp;
+				PRODUCT_NAME = ContactsApp;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Contacts/ContactsApp-Bridging-Header.h";
 			};
@@ -387,7 +399,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA2163181BAD9D63000AA4B4 /* Build configuration list for PBXNativeTarget "ContactsAppApp" */ = {
+		AA2163181BAD9D63000AA4B4 /* Build configuration list for PBXNativeTarget "ContactsApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA2163191BAD9D63000AA4B4 /* Debug */,
